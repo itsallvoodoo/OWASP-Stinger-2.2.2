@@ -1,0 +1,14 @@
+Buildfile: build.xml
+
+init:
+   [delete] Deleting directory C:\ant\Stinger\build
+    [mkdir] Created dir: C:\ant\Stinger\build
+
+compile:
+    [javac] Compiling 21 source files to C:\ant\Stinger\build
+
+dist:
+      [jar] Building jar: C:\ant\Stinger\dist\Stinger-2.2.2-Release-20081112.jar
+
+BUILD SUCCESSFUL
+Total time: 1 second

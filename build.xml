@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+<project name="Stinger-2.2-Release" default="dist" basedir=".">
+<property name="src" value="src"/>
+<property name="build" value="build"/>
+<property name="web" value="WebContent"/>
+<property name="dist" value="dist"/>
+<property name="j2ee" value="C:\Program Files\Apache Software Foundation\Tomcat 5.5\common\lib\servlet-api.jar"/>
+
+
+<target name="init">
+<tstamp/>
+<delete dir="${build}"/>
+<mkdir dir="${build}"/>
+</target>
+
+<target name="compile" depends="init"> 
+<javac classpath="${j2ee}" srcdir="${src}" destdir="${build}"/>
+</target>
+
+<target name="dist" depends="compile">
+<mkdir dir="${dist}"/>
+<jar jarfile="${dist}/Stinger-2.2.2-Release-${DSTAMP}.jar" basedir="${build}"/>
+<!-- <copy file="${dist}/Stinger-2.0-Lite-rc1-${DSTAMP}.jar" tofile="${web}/WEB-INF/lib/Stinger-2.0-Lite-rc1-${DSTAMP}.jar"/>-->
+</target>
+
+<target name="clean">
+<delete dir="${build}"/>
+<delete dir="${dist}"/>
+</target>
+
+</project>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stinger>
+	<regexset>
+		<regex>
+			<name>safetext</name>
+			<pattern>^[a-zA-Z0-9\s.\-]+$</pattern>
+			<description>
+				Lower and upper case letters and all digits
+			</description>
+		</regex>
+	</regexset>
+
+	<!-- **** PARAMETERS **** -->
+
+	<!-- The default parameter rule set must exist -->
+	<ruleset>
+		<name>STINGER_DEFAULT</name>
+		<!-- The path MUST be set to STINGER_DEFAULT -->
+		<path>STINGER_DEFAULT</path>
+
+		<rule>
+			<name>STINGER_ALL</name>
+			<regex>safetext</regex>
+
+			<missing>
+				<severity>ignore</severity>
+			</missing>
+			<malformed>
+				<severity>continue</severity>
+				<action class="org.owasp.stinger.actions.Encode" />
+			</malformed>
+		</rule>
+	</ruleset>
+</stinger>
